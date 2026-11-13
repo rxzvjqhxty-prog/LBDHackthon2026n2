@@ -1,0 +1,753 @@
+{
+  "at": "2026-10-28T15:36:09.761Z",
+  "checks": [
+    {
+      "name": "First visit shows an accessible entrance",
+      "pass": true
+    },
+    {
+      "name": "Skip dismisses entrance and stores session",
+      "pass": true
+    },
+    {
+      "name": "Entrance does not repeat on reload",
+      "pass": true
+    },
+    {
+      "name": "Both locally hosted fonts are loaded",
+      "pass": true
+    },
+    {
+      "name": "History timeline changes content",
+      "pass": true
+    },
+    {
+      "name": "Academic cycle tabs change content",
+      "pass": true
+    },
+    {
+      "name": "Orientation tabs change content",
+      "pass": true
+    },
+    {
+      "name": "Campus gallery advances",
+      "pass": true
+    },
+    {
+      "name": "FAQ disclosure opens",
+      "pass": true
+    },
+    {
+      "name": "Pronote opens genuine portal safely",
+      "pass": true
+    },
+    {
+      "name": "Trophy opens authentic photo detail",
+      "pass": true
+    },
+    {
+      "name": "Dialog traps keyboard focus",
+      "pass": true
+    },
+    {
+      "name": "Escape closes dialog and restores trigger focus",
+      "pass": true
+    },
+    {
+      "name": "Competition panel describes missing documentation honestly",
+      "pass": true
+    },
+    {
+      "name": "Album next changes destination",
+      "pass": true
+    },
+    {
+      "name": "Last album disables next",
+      "pass": true
+    },
+    {
+      "name": "Photo collection opens a labeled placeholder",
+      "pass": true
+    },
+    {
+      "name": "CD case opens",
+      "pass": true
+    },
+    {
+      "name": "Disc rotation is user controlled",
+      "pass": true
+    },
+    {
+      "name": "Disc rotation pauses",
+      "pass": true
+    },
+    {
+      "name": "No invented Spotify link or autoplay audio",
+      "pass": true
+    },
+    {
+      "name": "All eleven original clubs preserved",
+      "pass": true
+    },
+    {
+      "name": "Club search is accent insensitive",
+      "pass": true
+    },
+    {
+      "name": "Club search has honest empty state",
+      "pass": true
+    },
+    {
+      "name": "Facility filter works",
+      "pass": true
+    },
+    {
+      "name": "Contact uses real email links without fake form",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu opens",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu closes on Escape",
+      "pass": true
+    },
+    {
+      "name": "All routes have one h1 and no horizontal overflow at four widths",
+      "pass": true
+    },
+    {
+      "name": "All loaded images resolve on all tested routes",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion bypasses first-visit intro",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion stops disc animation",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion still opens CD contents",
+      "pass": true
+    },
+    {
+      "name": "Browser Back restores previous route",
+      "pass": true
+    },
+    {
+      "name": "Browser Forward restores next route",
+      "pass": true
+    },
+    {
+      "name": "Original HTML backup matches original checksum",
+      "pass": true
+    },
+    {
+      "name": "All source content groups retained",
+      "pass": true
+    },
+    {
+      "name": "No JavaScript runtime exceptions",
+      "pass": true
+    },
+    {
+      "name": "No HTTP resource errors",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "route": "accueil",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "vie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "academie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "voyages",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "media",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "clubs",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "inscriptions",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "recrutement",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "contact",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "personnel",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "sources",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/mun",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/maquette",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/finance",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/cinema",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/maths",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/games",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/manga",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/solidarite",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/elles-bougent",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "route": "club/chorale",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "accueil",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "vie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "academie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "voyages",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "media",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "clubs",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "inscriptions",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "recrutement",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "contact",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "personnel",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "sources",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/mun",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/maquette",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/finance",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/cinema",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/maths",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/games",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/manga",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/solidarite",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/elles-bougent",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "route": "club/chorale",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "accueil",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "vie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "academie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "voyages",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "media",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "clubs",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "inscriptions",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "recrutement",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "contact",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "personnel",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "sources",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/mun",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/maquette",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/finance",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/cinema",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/maths",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/games",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/manga",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/solidarite",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/elles-bougent",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "route": "club/chorale",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "accueil",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "vie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "academie",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "voyages",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "media",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "clubs",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "inscriptions",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "recrutement",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "contact",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "personnel",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "sources",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/mun",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/maquette",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/finance",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/cinema",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/maths",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/games",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/manga",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/solidarite",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/elles-bougent",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "route": "club/chorale",
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": []
+    }
+  ],
+  "errors": [],
+  "networkErrors": []
+}

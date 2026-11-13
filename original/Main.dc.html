@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Lycée Bonaparte de Doha</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=Public+Sans:wght@400;500;600&amp;family=Pinyon+Script&amp;display=swap">
+<style>
+body{margin:0;font-family:'Public Sans',Arial,sans-serif;color:#1B2433}
+html{scroll-behavior:smooth}h1,h2{letter-spacing:-.02em}@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}section{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}.mq{display:flex;width:max-content;animation:slide 30s linear infinite}.mq:hover{animation-play-state:paused}.tilt{transition:transform .35s}.tilt:hover{transform:rotate(0deg) scale(1.04)!important}.tilt2{transition:transform .3s}.tilt2:hover{transform:translateY(-4px) rotate(-.6deg)}.pod img{transition:transform .5s}.pod:hover img{transform:scale(1.08)}.outline{color:transparent;-webkit-text-stroke:1.5px #FFFFFF;transition:color .3s}.outline:hover{color:#FFFFFF}.wide{grid-column:span 2}@media (max-width:900px){.wide{grid-column:auto}}[style*="border-radius:14px"]:hover{transform:translateY(-4px)}@media (prefers-reduced-motion:reduce){section,.mq{animation:none}}[style*="border-radius:6px"]{border-radius:999px!important}[style*="border-radius:14px"],[style*="border-radius:10px"]{box-shadow:0 18px 40px -22px rgba(20,38,75,.35)}img[style*="object-fit:cover"]{box-shadow:0 34px 70px -28px rgba(8,16,40,.55)}button,a{transition:background .25s,color .25s,transform .25s,filter .25s}button:hover{filter:brightness(1.1);transform:translateY(-2px)}a{color:#14264B}a:hover{color:#B5271F}
+input,textarea{font-family:'Public Sans',sans-serif;font-size:16px;padding:13px 14px;border:1.5px solid #9AA3B5;border-radius:8px;background:#FFFFFF;color:#1B2433}
+</style>
+</helmet>
+<div style="width:100%;background:#FBFAF7;display:flex;flex-direction:column">
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:6px 56px;background:#0E1B38;font-size:14px">
+<span style="color:#C9D3EA">Al Intisar Street · BP 6110, Doha, Qatar · +974 4496 0300</span>
+<div style="display:flex;gap:22px">
+<a href="https://e974003c.index-education.net/pronote/" style="color:#FFFFFF;font-weight:600;text-decoration:none;padding:10px 0">Espace Pronote</a>
+<a href="https://outlook.office365.com/mail/" style="color:#C9D3EA;text-decoration:none;padding:10px 0">Messagerie du personnel</a>
+<a href="https://lycee-bonaparte.fr/en" style="color:#C9D3EA;text-decoration:none;padding:10px 0">FR | EN</a>
+</div></div>
+
+<header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:14px 56px;position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,38,75,.1)">
+<div style="display:flex;align-items:center;gap:22px">
+<button onClick="{{goHome}}" aria-label="Accueil" style="background:none;border:0;padding:0;cursor:pointer"><img src="./assets/86829c568d7f460423e9cda803e88dc0.png" alt="Lycée Bonaparte" style="height:50px;display:block"></button>
+<img src="./assets/3bf1312cf012944bb690946b5c7872fa.png" alt="AEFE, établissement conventionné" style="height:50px;display:block">
+</div>
+<nav style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+<button onClick="{{n.pick}}" style="{{n.style}}">{{n.label}}</button>
+</sc-for>
+</nav>
+</header>
+
+<sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
+<section style="display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding:96px 56px 132px;background:radial-gradient(900px 520px at 88% 0,#2D4A86 0,#14264B 62%);color:#FFFFFF">
+<div style="flex:1 1 480px;display:flex;flex-direction:column;gap:24px">
+<span style="font-family:'Pinyon Script',cursive;font-size:34px;color:#FFD9D4;line-height:1">Cinquante ans d’excellence · 1976 – 2026</span>
+<h1 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:70px;line-height:1.02;letter-spacing:-.025em">L’excellence pour tous, la réussite de chacun.</h1>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#DCE3F2;max-width:600px">Depuis un demi-siècle, le Lycée Bonaparte dispense un enseignement exigeant, ouvert sur le monde et fidèle aux valeurs de la République, au sein d’un environnement bienveillant, inclusif et résolument plurilingue.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px">
+<button onClick="{{goInscr}}" style="background:{{accent}};color:#FFFFFF;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:16px 28px;border-radius:6px;cursor:pointer">Découvrir les inscriptions</button>
+<a href="#campus" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;padding:15px 26px;border-radius:6px">Explorer le campus</a>
+</div></div>
+<div style="flex:1 1 440px;position:relative;min-height:480px"><img src="./assets/570e93e4e9dec2f7b1b671f1928eff6a.png" alt="Façade du Lycée Bonaparte à West Bay" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:230px 230px 16px 16px">
+<div style="position:absolute;left:-18px;bottom:36px;width:132px;height:132px;border-radius:50%;background:{{accent}};color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px solid #14264B"><span style="font-family:'Fraunces',serif;font-size:46px;line-height:1">50</span><span style="font-family:'Pinyon Script',cursive;font-size:26px;line-height:1">ans</span></div></div>
+</section>
+
+
+<section style="padding:0 56px 24px;margin-top:-64px;position:relative;background:linear-gradient(#14264B 0,#14264B 64px,#FBFAF7 64px)">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px;align-items:start;max-width:1248px;margin:0 auto">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="6">
+<button onClick="{{s.pick}}" style="{{s.style}}">
+<span style="font-family:'Fraunces',serif;font-size:{{s.size}}px;color:#FFFFFF;line-height:1.1">{{s.value}}</span>
+<span style="font-size:20px;font-weight:700;letter-spacing:.01em;color:#FFFFFF;padding-top:10px;border-top:3px solid #FFD9D4;margin-top:4px">{{s.label}}</span>
+<sc-if value="{{s.open}}" hint-placeholder-val="{{false}}"><span style="font-size:13px;line-height:1.5;color:#C9D3EA">{{s.note}}</span></sc-if>
+</button>
+</sc-for>
+</div>
+</section>
+
+<div style="background:{{accent}};color:#FFFFFF;overflow:hidden;padding:20px 0"><div class="mq"><span style="font-family:'Pinyon Script',cursive;font-size:34px;white-space:nowrap;padding-right:40px">Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité ·</span><span aria-hidden="true" style="font-family:'Pinyon Script',cursive;font-size:34px;white-space:nowrap;padding-right:40px">Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité · Liberté · Égalité · Fraternité ·</span></div></div>
+
+<section id="histoire" style="padding:72px 56px 88px;display:flex;flex-wrap:wrap;gap:56px;background:#FBFAF7">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:20px">
+<span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">NOTRE HISTOIRE</span>
+<h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:44px;line-height:1.1">Quatre décennies au service de la langue et des valeurs françaises</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="4">
+<button onClick="{{y.pick}}" style="{{y.style}}">{{y.year}}</button>
+</sc-for>
+</div>
+<div style="background:#FFFFFF;border:1px solid #E4E1D8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px">
+<b style="font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:#14264B">{{curYear.title}}</b>
+<span style="font-size:16px;line-height:1.7;color:#4A5262">{{curYear.text}}</span>
+</div></div>
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:22px">
+<span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">NOTRE VISION</span>
+<img src="./assets/0b2f581c61a5032c7fc7752c04ef5e07.png" alt="Deux élèves conversant dans la cour" style="width:100%;height:260px;object-fit:cover;border-radius:16px 120px 16px 16px">
+<p style="margin:0;font-size:18px;line-height:1.75;color:#2E3748">Former des citoyens du monde, rigoureux et lucides, attachés à la Liberté, à l’Égalité et à la Fraternité ; cultiver l’esprit critique et la curiosité intellectuelle ; offrir une éducation plurilingue et interculturelle, ouverte sur la culture du Qatar, sur celle de la France et sur toutes celles qui composent notre communauté.</p>
+<blockquote style="margin:8px 0 0;padding:30px 32px;background:#14264B;border-radius:14px;color:#FFFFFF;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Fraunces',serif;font-size:30px;line-height:1.3">« L’éducation est l’arme la plus puissante pour changer le monde. »</span>
+<span style="font-size:15px;color:#C9D3EA">— Nelson Mandela</span>
+</blockquote></div>
+</section>
+
+<section id="parcours" style="padding:56px 56px 72px;background:#FBFAF7;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">NOS CYCLES</span><h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:44px;line-height:1.1">De la maternelle à la terminale, un parcours continu</h2></div>
+<div style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 20px">
+<sc-for list="{{cycles}}" as="c" hint-placeholder-count="4">
+<article style="flex:1 0 270px;scroll-snap-align:start;background:#FFFFFF;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+<img src="{{c.img}}" alt="{{c.title}}" style="width:100%;height:240px;object-fit:cover;object-position:{{c.pos}};display:block;clip-path:polygon(0 0,100% 0,100% 74%,0 100%)">
+<div style="padding:6px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1">
+<h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:27px;color:#14264B">{{c.title}}</h3>
+<span style="font-size:14px;font-weight:700;color:#1B2433">{{c.ages}}</span>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#4A5262">{{c.text}}</p>
+<a href="https://lycee-bonaparte.fr/en/un-programme-dexcellence/" style="margin-top:auto;padding-top:10px;font-weight:700;font-size:15px;text-decoration:none;color:#14264B">Découvrir plus →</a>
+</div></article>
+</sc-for>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#FBFAF7" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#EFEDE6"></path></svg>
+<section id="sections" style="background:#EFEDE6;padding:24px 56px 72px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">NOS SECTIONS ET PARCOURS</span><h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:44px;line-height:1.1">Plusieurs voies vers l’excellence</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+<sc-for list="{{secs}}" as="x" hint-placeholder-count="4">
+<div style="background:#FFFFFF;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:12px;border-top:4px solid {{accent}}"><span style="font-family:'Pinyon Script',cursive;font-size:40px;line-height:1;color:{{accent}}">{{x.num}}</span><h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:#14264B">{{x.title}}</h3><p style="margin:0;font-size:15px;line-height:1.65;color:#4A5262">{{x.text}}</p></div>
+</sc-for>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#EFEDE6" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#14264B"></path></svg>
+<section id="orientation" style="background:#14264B;color:#FFFFFF;padding:40px 56px 88px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+<div style="flex:1 1 460px;display:flex;flex-direction:column;gap:20px">
+<span style="font-family:'Pinyon Script',cursive;font-size:34px;color:#FFD9D4;line-height:1">Après le lycée</span>
+<h2 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:44px;line-height:1.1">Un guide pour choisir son enseignement supérieur</h2>
+<p style="margin:0;font-size:17px;line-height:1.7;color:#DCE3F2">Nos lycéens disposent d’un guide d’orientation pour éclairer leurs choix d’études, en France comme à l’étranger.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{oTabs}}" as="o" hint-placeholder-count="3"><button onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for></div>
+<div style="background:#1D3566;border-radius:14px;padding:24px 26px;font-size:16px;line-height:1.7;color:#E6ECF8">{{oCur.text}}</div>
+<a href="https://lycee-bonaparte.fr/en/our-academic-excellence/" style="align-self:flex-start;background:#FFFFFF;color:#14264B;text-decoration:none;font-weight:600;padding:15px 26px;border-radius:6px">Découvrir l’orientation</a>
+</div>
+<img src="./assets/68d3f601d3f91ee79bb47cb9ac4a8886.jpg" alt="Élève présentant un projet scientifique lors d’un événement du lycée" style="flex:1 1 360px;min-width:0;max-width:100%;height:520px;object-fit:cover;border-radius:220px 220px 16px 16px">
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#14264B" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#EFEDE6"></path></svg>
+
+<section id="campus" style="padding:80px 56px;background:#EFEDE6;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+<div style="flex:1 1 400px;display:flex;flex-direction:column;gap:18px">
+<span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">LE CAMPUS</span>
+<h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:40px;line-height:1.12">Un campus ultramoderne au cœur de West Bay</h2>
+<p style="margin:0;font-size:17px;line-height:1.75;color:#4A5262">Achevé en 2021, l’établissement allie architecture arabo-islamique, salles hexagonales et infrastructures de haut niveau. Fonctionnel et spacieux, il peut accueillir plus de 2 150 élèves, dans un dialogue constant entre les cultures du Qatar et de la France.</p>
+</div>
+<a href="https://lycee-bonaparte.fr/wp-content/uploads/2026/01/copy_15012F24-6D59-4AD7-806B-1C8B0FA3CF0E.mp4?autoplay=1" style="flex:1 1 440px;min-height:340px;position:relative;z-index:0;overflow:hidden;border-radius:16px;background:#14264B;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#FFFFFF">
+<img src="./assets/c91fcdb635dffdd26b156605be3cb2c4.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;z-index:-1">
+<span style="width:84px;height:84px;border-radius:50%;background:{{accent}};display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+<span style="font-family:'Fraunces',serif;font-size:26px">Visiter le campus en vidéo</span>
+<span style="font-size:14px;color:#C9D3EA">S’ouvre sur le site du lycée</span>
+</a>
+</section>
+
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#EFEDE6" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#14264B"></path></svg>
+<section style="background:#14264B;color:#FFFFFF;padding:56px 56px 96px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px">
+<span style="font-family:'Pinyon Script',cursive;font-size:36px;color:#FFD9D4;line-height:1">1976 — 2026</span>
+<h2 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:52px;line-height:1.08">Cinquante ans d’éducation à la française à Doha</h2>
+<p style="margin:0;font-size:17px;line-height:1.75;color:#DCE3F2">Un demi-siècle de transmission, de rigueur et d’ouverture : des générations d’élèves ont grandi ici, entre la culture du Qatar et l’idéal républicain.</p>
+<a href="#histoire" style="align-self:flex-start;background:#FFFFFF;color:#14264B;text-decoration:none;font-weight:600;padding:15px 26px;border-radius:6px">Revivre notre histoire</a>
+</div>
+<img src="./assets/0a5cce3e90ee517b181360f53375c141.png" alt="Les élèves rassemblés en formation sur le terrain" style="flex:1 1 420px;min-width:0;max-width:100%;height:460px;object-fit:cover;border-radius:16px 220px 16px 16px">
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#14264B" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#FBFAF7"></path></svg>
+<section style="padding:48px 56px 88px;display:flex;flex-wrap:wrap;gap:56px">
+<div style="flex:1 1 320px;display:flex;flex-direction:column;gap:16px">
+<span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">QUESTIONS FRÉQUENTES</span>
+<h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:44px;line-height:1.1">Vos questions, nos réponses</h2>
+<p style="margin:0;font-size:16px;line-height:1.7;color:#4A5262">Une interrogation demeure ? Notre équipe se tient à votre disposition.</p>
+<button onClick="{{goContact}}" style="align-self:flex-start;background:#14264B;color:#FFFFFF;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:15px 26px;border-radius:6px;cursor:pointer">Nous écrire</button>
+<img src="./assets/d48e269d598dd7219bbbc808c3ba78ea.png" alt="Élèves courant dans le jardin" style="width:100%;max-width:340px;height:300px;object-fit:cover;border-radius:16px 16px 140px 16px;margin-top:12px">
+</div>
+<div style="flex:2 1 520px;display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+<div style="background:#FFFFFF;border:1px solid #E4E1D8;border-radius:10px;overflow:hidden">
+<button onClick="{{q.pick}}" style="width:100%;text-align:left;background:none;border:0;padding:20px 24px;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;color:#14264B;cursor:pointer;display:flex;justify-content:space-between;gap:16px"><span>{{q.q}}</span><span aria-hidden="true">{{q.sign}}</span></button>
+<sc-if value="{{q.open}}" hint-placeholder-val="{{false}}"><div style="padding:0 24px 22px;font-size:15px;line-height:1.7;color:#4A5262">{{q.a}}</div></sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isOther}}" hint-placeholder-val="{{false}}">
+<section style="padding:96px 56px;min-height:420px;display:flex;flex-direction:column;gap:20px;background:#14264B;color:#FFFFFF">
+<span style="font-size:13px;letter-spacing:.16em;color:#C9D3EA">LYCÉE BONAPARTE</span>
+<h1 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:60px">{{curPage.label}}</h1>
+</section>
+</sc-if>
+
+<sc-if value="{{isVie}}" hint-placeholder-val="{{false}}">
+<section style="padding:88px 56px 80px;background:radial-gradient(900px 520px at 88% 0,#2D4A86 0,#14264B 62%);color:#FFFFFF;display:flex;flex-direction:column;gap:22px">
+<span style="font-family:'Pinyon Script',cursive;font-size:34px;color:#FFD9D4;line-height:1">Au quotidien</span>
+<h1 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:68px;line-height:1.02;letter-spacing:-.025em">Vie au lycée</h1>
+<p style="margin:0;font-size:18px;line-height:1.7;color:#DCE3F2;max-width:660px">Apprendre, partager, s’épanouir : au Lycée Bonaparte, chaque journée est l’occasion de découvrir, de se dépasser et de créer des souvenirs.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
+<a href="#communaute" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Communauté</a>
+<a href="#installations" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Installations</a>
+<a href="#academie" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Académie Bonaparte</a>
+<a href="#concours" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Concours</a>
+<a href="#evenements" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Événements</a>
+<a href="#voyages" style="border:1.5px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px">Voyages scolaires</a>
+</div>
+</section>
+
+<section id="communaute" style="padding:88px 56px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;background:#FBFAF7;overflow:hidden">
+<div style="flex:1 1 420px;position:relative;min-height:560px;max-width:100%">
+<img src="./assets/0b2f581c61a5032c7fc7752c04ef5e07.png" alt="Deux élèves conversant" style="position:absolute;left:0;top:0;width:330px;height:330px;max-width:70%;object-fit:cover;border-radius:50%">
+<img src="./assets/0a5cce3e90ee517b181360f53375c141.png" alt="Élèves réunis sur le terrain" style="position:absolute;right:0;top:70px;width:240px;height:340px;max-width:50%;object-fit:cover;border-radius:120px 120px 16px 16px">
+<img src="./assets/6bdc7cb7a662e8757f5fd1dd96687533.jpg" alt="Élèves du collège" style="position:absolute;left:70px;bottom:0;width:230px;height:230px;max-width:50%;object-fit:cover;border-radius:16px 16px 16px 110px">
+<div class="tilt" style="position:absolute;right:20px;bottom:40px;background:{{accent}};color:#FFFFFF;border-radius:50%;width:150px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg)"><span style="font-family:'Fraunces',serif;font-size:50px;line-height:1">75</span><span style="font-size:13px;font-weight:600">nationalités</span></div>
+</div>
+<div style="flex:1 1 440px;display:flex;flex-direction:column;gap:20px">
+<span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">COMMUNAUTÉ</span>
+<h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08;color:#14264B">Un monde en miniature, rassemblé à Doha</h2>
+<p style="margin:0;font-size:17px;line-height:1.75;color:#4A5262">Plus de 75 nationalités se côtoient chaque jour dans le respect et la curiosité de l’autre, guidées par des enseignants expérimentés, issus de nombreux horizons et spécialistes de leurs disciplines.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+<div style="background:#14264B;color:#FFFFFF;border-radius:14px;padding:22px"><b style="font-family:'Fraunces',serif;font-size:22px;font-weight:500">Enseignants expérimentés</b><div style="font-size:14px;line-height:1.6;color:#C9D3EA;margin-top:6px">Des équipes pédagogiques de haut niveau, dans de nombreux domaines.</div></div>
+<div style="background:#F9DDD8;color:#14264B;border-radius:14px;padding:22px"><b style="font-family:'Fraunces',serif;font-size:22px;font-weight:500">Clubs et comités</b><div style="font-size:14px;line-height:1.6;color:#4A5262;margin-top:6px">De nombreux clubs et comités qui gardent la communauté active toute l’année.</div></div>
+</div></div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#FBFAF7" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#EFEDE6"></path></svg>
+<section id="installations" style="background:#EFEDE6;padding:24px 56px 88px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">INSTALLATIONS</span><h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08;color:#14264B">Des lieux pensés pour apprendre et s’épanouir</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{fTabs}}" as="f" hint-placeholder-count="4"><button onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button></sc-for></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:16px">
+<sc-for list="{{facs}}" as="x" hint-placeholder-count="8"><div class="{{x.cls}}" style="{{x.style}}"><sc-if value="{{x.hasImg}}" hint-placeholder-val="{{false}}"><div style="position:absolute;inset:0;z-index:-1"><img src="{{x.img}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,27,56,.05) 25%,rgba(14,27,56,.92))"></span></div></sc-if><span style="position:absolute;right:14px;bottom:-14px;font-family:'Fraunces',serif;font-size:120px;line-height:1;opacity:.12">{{x.num}}</span><span style="font-size:12px;letter-spacing:.14em;font-weight:700;color:{{x.tagColor}}">{{x.tag}}</span><h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:{{x.titleSize}}px;position:relative">{{x.title}}</h3><p style="margin:0;font-size:15px;line-height:1.6;color:{{x.textColor}};position:relative;max-width:420px">{{x.text}}</p></div></sc-for>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#EFEDE6" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#14264B"></path></svg>
+<section id="academie" style="background:#14264B;color:#FFFFFF;padding:40px 0 88px;display:flex;flex-direction:column;gap:40px;overflow:hidden">
+<div style="padding:0 56px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end;justify-content:space-between">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px"><img src="./assets/c93459d9cbd4be4cd2f0ad906c8fdcaf.jpg" alt="Logo de l’Académie Bonaparte" style="width:150px;height:150px;object-fit:contain;background:#FFFFFF;border-radius:20px;padding:10px;box-sizing:border-box"><span style="font-family:'Pinyon Script',cursive;font-size:34px;color:#FFD9D4;line-height:1">L’esprit d’équipe</span><h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08">L’Académie Bonaparte</h2><p style="margin:0;font-size:17px;line-height:1.75;color:#DCE3F2;max-width:520px">Sport et art se rencontrent ici : nos élèves se mesurent dans d’innombrables disciplines sportives, mais s’expriment aussi à travers des activités artistiques, du théâtre à la musique, avec un même esprit : se dépasser, créer ensemble et représenter fièrement le lycée.</p><button onClick="{{goAcademie}}" style="align-self:flex-start;background:#FFFFFF;color:#14264B;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:15px 26px;border-radius:6px;cursor:pointer">Découvrir l’Académie Bonaparte →</button></div>
+<div style="flex:1 1 460px;min-width:0;display:flex;align-items:flex-end;gap:12px">
+<figure class="pod" style="flex:1 1 0;min-width:0;margin:0;display:flex;flex-direction:column"><div style="position:relative;height:250px;overflow:hidden;border-radius:90px 90px 0 0"><img src="./assets/122b1464f2f08fc655c386c5bfe295ca.jpg" alt="Lycéennes montrant leurs médailles sur un podium" style="width:100%;height:100%;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;background:linear-gradient(transparent,rgba(14,27,56,.85));font-size:13px;font-weight:600;text-align:center">Médaillées</figcaption></div><div style="height:56px;background:#FFFFFF;color:#14264B;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:34px">2</div></figure>
+<figure class="pod" style="flex:1 1 0;min-width:0;margin:0;display:flex;flex-direction:column"><div style="position:relative;height:310px;overflow:hidden;border-radius:110px 110px 0 0"><img src="./assets/f5716eb67a546246ef530ab829c634a1.jpg" alt="Équipe de football victorieuse avec trophée et médailles" style="width:100%;height:100%;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;background:linear-gradient(transparent,rgba(14,27,56,.85));font-size:13px;font-weight:600;text-align:center">Champions</figcaption></div><div style="height:84px;background:{{accent}};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:46px">1</div></figure>
+<figure class="pod" style="flex:1 1 0;min-width:0;margin:0;display:flex;flex-direction:column"><div style="position:relative;height:210px;overflow:hidden;border-radius:80px 80px 0 0"><img src="./assets/56c71f20d19965d3a66064b0d5489af4.jpg" alt="Élève en maillot Académie Bonaparte jouant au tennis de table" style="width:100%;height:100%;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;background:linear-gradient(transparent,rgba(14,27,56,.85));font-size:13px;font-weight:600;text-align:center">Tennis de table</figcaption></div><div style="height:40px;background:#C9D3EA;color:#14264B;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:28px">3</div></figure>
+</div>
+</div>
+<div style="background:#B5271F;padding:18px 0;overflow:hidden"><div class="mq"><sc-for list="{{sports2}}" as="s" hint-placeholder-count="14"><span style="font-family:'Pinyon Script',cursive;font-size:34px;white-space:nowrap;padding-right:34px">{{s}} ·</span></sc-for></div></div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#14264B" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#EFEDE6"></path></svg>
+<section id="clubs" style="background:#EFEDE6;padding:24px 56px 80px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">CLUBS</span><h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:46px;line-height:1.08">Chacun sa passion, tous ensemble</h2><p style="margin:0;font-size:17px;line-height:1.7;color:#4A5262">Onze clubs pour débattre, créer, jouer, chanter et s’engager. Choisissez un club pour découvrir ce qui s’y passe.</p></div>
+<div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+<div style="flex:1 1 520px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:26px 14px">
+<sc-for list="{{clubs}}" as="k" hint-placeholder-count="11"><button onClick="{{k.pick}}" style="{{k.style}}"><span style="{{k.circle}}"><img src="{{k.img}}" alt="" style="width:100%;height:100%;object-fit:{{k.fit}};display:block"></span><span style="font-size:14px;font-weight:700;color:#14264B;line-height:1.3">{{k.name}}</span></button></sc-for>
+</div>
+<div style="flex:1 1 380px;position:sticky;top:110px;background:#14264B;color:#FFFFFF;border-radius:20px;padding:34px;display:flex;flex-direction:column;gap:16px">
+<img src="{{clubCur.img}}" alt="{{clubCur.name}}" style="width:100%;height:210px;object-fit:{{clubCur.fit}};background:{{clubCur.bg}};border-radius:14px;display:block">
+<span style="font-family:'Pinyon Script',cursive;font-size:30px;color:#FFD9D4;line-height:1">Le club</span>
+<h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:38px;line-height:1.1">{{clubCur.name}}</h3>
+<p style="margin:0;font-size:16px;line-height:1.7;color:#DCE3F2">{{clubCur.text}}</p>
+<div style="background:#1D3566;border-radius:14px;padding:18px 20px;font-size:15px;line-height:1.7;color:#E6ECF8"><b style="color:#FFFFFF">Au programme :</b> {{clubCur.items}}</div>
+<div style="font-size:15px;line-height:1.6;color:#C9D3EA"><b style="color:#FFFFFF">Horaires et lieu :</b> communiqués par le club.</div>
+<button onClick="{{goContact}}" style="align-self:flex-start;background:{{accent}};color:#FFFFFF;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:15px 26px;border-radius:6px;cursor:pointer">Pour plus d’informations →</button>
+</div>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#EFEDE6" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#FBFAF7"></path></svg>
+<section id="concours" style="background:#FBFAF7;padding:24px 56px 88px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">CONCOURS</span><h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08;color:#14264B">Se mesurer, créer, convaincre</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start">
+<sc-for list="{{conc}}" as="c" hint-placeholder-count="9"><div style="{{c.style}}"><span style="font-family:'Pinyon Script',cursive;font-size:64px;line-height:.9;color:{{accent}}">{{c.n}}</span><h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:#14264B">{{c.title}}</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#4A5262">{{c.text}}</p></div></sc-for>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#FBFAF7" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#EFEDE6"></path></svg>
+<section id="evenements" style="background:#EFEDE6;padding:24px 56px 96px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-size:13px;letter-spacing:.16em;color:{{accent}};font-weight:600">ÉVÉNEMENTS</span><h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08;color:#14264B">Des moments qui rassemblent</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px">
+<sc-for list="{{evts}}" as="e" hint-placeholder-count="7"><div class="tilt" style="{{e.style}}"><span style="position:absolute;top:-12px;left:50%;margin-left:-36px;width:72px;height:24px;background:rgba(181,39,31,.35);transform:rotate(-3deg)"></span><h3 style="margin:0;font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:#14264B">{{e.title}}</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#4A5262">{{e.text}}</p></div></sc-for>
+</div>
+</section>
+<svg viewBox="0 0 1440 64" preserveAspectRatio="none" style="display:block;width:100%;height:64px;background:#EFEDE6" aria-hidden="true"><path d="M0 64 C360 0 1080 0 1440 64 Z" fill="#14264B"></path></svg>
+<section id="voyages" style="background:#14264B;color:#FFFFFF;padding:24px 56px 96px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px"><span style="font-family:'Pinyon Script',cursive;font-size:34px;color:#FFD9D4;line-height:1">S’ouvrir au monde</span><h2 style="font-family:'Fraunces',serif;font-weight:500;margin:0;font-size:46px;line-height:1.08">Voyages scolaires</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px">
+<sc-for list="{{voys}}" as="v" hint-placeholder-count="7"><div class="tilt2" style="display:flex;background:#FFFFFF;color:#14264B;border-radius:14px;overflow:hidden"><div style="flex:1 1 auto;padding:24px 26px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;text-align:center"><span style="font-size:11px;letter-spacing:.18em;font-weight:700;color:#B5271F">CARTE D’EMBARQUEMENT</span><span style="font-family:'Pinyon Script',cursive;font-size:46px;line-height:1.1">{{v.title}}</span><p style="margin:0;font-size:14px;line-height:1.55;color:#4A5262">{{v.text}}</p></div><div style="flex:0 0 96px;border-left:2px dashed #9AA3B5;background:#F4F1EA;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px"><span style="font-size:28px" aria-hidden="true">✈</span><b style="font-size:13px;letter-spacing:.1em">{{v.tag}}</b></div></div></sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isContact}}" hint-placeholder-val="{{false}}">
+<section style="padding:80px 56px;display:flex;flex-wrap:wrap;gap:56px">
+<div style="flex:1 1 340px;display:flex;flex-direction:column;gap:18px">
+<h1 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:52px;line-height:1.08">Contactez-nous</h1>
+<p style="margin:0;font-size:17px;line-height:1.7;color:#4A5262">Notre secrétariat vous répond dans les meilleurs délais.</p>
+<div style="font-size:16px;line-height:1.9;color:#2E3748">Al Intisar Street<br>BP 6110, Doha, Qatar<br>+974 4496 0300</div>
+<a href="https://lycee-bonaparte.fr/en/contact-us/" style="color:{{accent}};font-weight:600">Page de contact du lycée</a>
+</div>
+<div style="flex:1 1 440px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:16px">
+<sc-if value="{{contactSent}}" hint-placeholder-val="{{false}}"><div style="font-family:'Fraunces',serif;font-size:26px;color:#14264B;line-height:1.4">Merci, votre message est prêt à être transmis à notre équipe.</div></sc-if>
+<sc-if value="{{contactOpen}}" hint-placeholder-val="{{true}}">
+<label for="c1" style="font-size:14px;font-weight:600;color:#14264B">Nom et prénom</label><input id="c1" type="text">
+<label for="c2" style="font-size:14px;font-weight:600;color:#14264B">Adresse électronique</label><input id="c2" type="email">
+<label for="c3" style="font-size:14px;font-weight:600;color:#14264B">Votre message</label><textarea id="c3" rows="5"></textarea>
+<button onClick="{{sendContact}}" style="align-self:flex-start;background:{{accent}};color:#FFFFFF;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:15px 28px;border-radius:6px;cursor:pointer">Envoyer</button>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+<section style="padding:64px 56px;background:#FFFFFF;border-top:1px solid #E4E1D8;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:16px">
+<h2 style="font-family:'Fraunces',serif;font-weight:500;color:#14264B;margin:0;font-size:30px">Suivez la vie du lycée</h2>
+<div style="display:flex;gap:14px"><a href="https://www.facebook.com/LyceeBonaparteDoha/" aria-label="Facebook" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #14264B;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#14264B" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"></path></svg></a>
+<a href="https://www.instagram.com/lyceebonapartedoha/" aria-label="Instagram" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #14264B;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#14264B" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm5 2.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path></svg></a>
+<a href="https://www.youtube.com/user/BonaparteLycee" aria-label="YouTube" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #14264B;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#14264B" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"></path></svg></a>
+<a href="https://www.linkedin.com/company/lycee-francais-doha" aria-label="LinkedIn" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #14264B;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="#14264B" aria-hidden="true"><rect x="3" y="9" width="4" height="12"></rect><circle cx="5" cy="5" r="2"></circle><path d="M10 9h4v2c1-1.5 2.5-2.5 4.5-2.5 3 0 3.5 2 3.5 5V21h-4v-6c0-1.5-.3-2.5-1.8-2.5S14 13.5 14 15v6h-4z"></path></svg></a></div>
+</div>
+<div style="flex:1 1 420px;max-width:560px;display:flex;flex-direction:column;gap:12px">
+<b style="font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:#14264B">Lettre d’information</b>
+<sc-if value="{{nlSent}}" hint-placeholder-val="{{false}}"><span style="font-size:16px;color:#14264B">Merci pour votre inscription à la lettre d’information.</span></sc-if>
+<sc-if value="{{nlOpen}}" hint-placeholder-val="{{true}}"><div style="display:flex;flex-wrap:wrap;gap:10px">
+<label for="nl" style="position:absolute;left:-9999px">Adresse électronique</label>
+<input id="nl" type="email" placeholder="Votre adresse électronique" style="flex:1 1 240px">
+<button onClick="{{sendNl}}" style="background:{{accent}};color:#FFFFFF;border:0;font-family:'Public Sans',sans-serif;font-size:16px;font-weight:600;padding:14px 24px;border-radius:8px;cursor:pointer">S’abonner</button></div></sc-if>
+</div>
+</section>
+
+<footer style="background:#14264B;color:#DCE3F2;padding:56px 56px 36px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between">
+<div style="flex:1 1 300px;display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:18px;align-self:flex-start"><img src="./assets/86829c568d7f460423e9cda803e88dc0.png" alt="Lycée Bonaparte" style="height:40px"><img src="./assets/3bf1312cf012944bb690946b5c7872fa.png" alt="AEFE" style="height:40px"></div>
+<span style="font-size:15px;line-height:1.8">Lycée français de Doha<br>Al Intisar Street · BP 6110<br>Doha, Qatar · +974 4496 0300</span></div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:4px;font-size:15px"><b style="color:#FFFFFF;margin-bottom:6px">Liens utiles</b>
+<a href="https://e974003c.index-education.net/pronote/" style="color:#DCE3F2;padding:6px 0">Pronote</a>
+<a href="https://lycee-bonaparte.fr/en/calendrier-scolaire-2024-2025/" style="color:#DCE3F2;padding:6px 0">Calendrier scolaire</a>
+<a href="https://lycee-bonaparte.fr/en/canteen/" style="color:#DCE3F2;padding:6px 0">Restauration</a>
+<a href="https://lycee-bonaparte.fr/en/life-in-qatar/" style="color:#DCE3F2;padding:6px 0">La vie au Qatar</a></div>
+<div style="flex:1 1 200px;display:flex;flex-direction:column;gap:4px;font-size:15px"><b style="color:#FFFFFF;margin-bottom:6px">Partenaires institutionnels</b>
+<a href="https://www.aefe.fr/" style="color:#DCE3F2;padding:6px 0">AEFE</a>
+<a href="https://www.education.gouv.fr/" style="color:#DCE3F2;padding:6px 0">Ministère de l’Éducation nationale</a>
+<a href="https://qa.ambafrance.org/" style="color:#DCE3F2;padding:6px 0">Ambassade de France à Doha</a></div>
+</div>
+<span style="font-size:13px;color:#A9B6D3">© Lycée Bonaparte. Maquette conceptuelle.</span>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#B5271F"},"$preview":{"width":1360,"height":3900}}'>
+class Component extends DCLogic {
+constructor(p){ super(p); this.state={page:'home',stat:-1,year:4,gal:0,tick:0,orient:0,vf:'Tout',club:0,faq:-1,nl:false,contact:false}; }
+componentDidMount(){const t0=Date.now();this._a=setInterval(()=>{const k=Math.min(1,(Date.now()-t0)/1800);this.setState({tick:k});if(k>=1)clearInterval(this._a);},40);}
+componentWillUnmount(){clearInterval(this._a);}
+renderVals() {
+const accent=this.props.accent ?? '#B5271F', st=this.state, go=(p)=>()=>this.setState({page:p});
+const pages=[['home','Accueil'],['vie','Vie au lycée'],['inscr','Inscriptions'],['recr','Recrutement'],['perso','Personnel'],['contact','Contactez-nous']];
+const nav=pages.map(([id,label])=>{const on=st.page===id,c=id==='contact';return {label,pick:go(id),style:"font-family:'Public Sans',sans-serif;font-size:15px;font-weight:600;padding:12px 16px;min-height:44px;border-radius:6px;cursor:pointer;border:0;"+(c?'background:'+accent+';color:#FFFFFF':(on?'background:#14264B;color:#FFFFFF':'background:transparent;color:#14264B'))};});
+const S=[
+['2 150','Élèves','Accueillis de la maternelle à la terminale sur un campus de West Bay.',46],
+['75','Nationalités','Une communauté multiculturelle, riche de ses différences.',46],
+['6','Langues enseignées','Un apprentissage renforcé des langues vivantes dès la maternelle.',46],
+['99 %','Réussite au brevet','Un taux d’excellence, reflet de l’exigence et de l’accompagnement de chaque élève.',46],
+['99 %','Réussite au baccalauréat','Une préparation rigoureuse, tournée vers l’enseignement supérieur.',46]];
+const e=1-Math.pow(1-st.tick,3);const stats=S.map(([val,label,note,size],i)=>{const open=st.stat===i;const dg=String(val).replace(/\D/g,'');const n=parseInt(dg,10);const value=(dg!==''&&String(n)===dg)?(Math.round(n*e).toLocaleString('fr-FR')+(String(val).includes('%')?' %':'')):val;return {value,label,note,size,open,pick:()=>this.setState({stat:open?-1:i}),style:"text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;border:1.5px solid "+(open?'#FFFFFF':'#3B5A96')+";background:"+(open?'#2A4478':'#1D3566')+";font-family:'Public Sans',sans-serif"};});
+const G=[{src:'./assets/570e93e4e9dec2f7b1b671f1928eff6a.png',alt:'Façade du lycée',caption:'La façade du lycée, à West Bay'},{src:'./assets/c91fcdb635dffdd26b156605be3cb2c4.png',alt:'Auditorium',caption:'L’auditorium'},{src:'./assets/0b2f581c61a5032c7fc7752c04ef5e07.png',alt:'Élèves dans la cour',caption:'La cour, lieu de rencontres'},{src:'./assets/d48e269d598dd7219bbbc808c3ba78ea.png',alt:'Élèves dans le jardin',caption:'Élan et joie de vivre'},{src:'./assets/0a5cce3e90ee517b181360f53375c141.png',alt:'Élèves réunis sur le terrain',caption:'Une communauté rassemblée'}];
+const thumbs=G.map((g,i)=>({src:g.src,alt:g.alt,pick:()=>this.setState({gal:i}),style:'padding:0;cursor:pointer;border-radius:12px;overflow:hidden;width:120px;height:80px;background:none;border:3px solid '+(i===st.gal?'#B5271F':'transparent')+';opacity:'+(i===st.gal?1:0.65)}));
+const C=[
+{img:'./assets/703bf296be629daaa579a4ffa9bf7b95.jpg',pos:'50% 40%',title:'École maternelle',ages:'Âges 3 – 5 ans',text:'Les plus jeunes découvrent le monde par le jeu, la manipulation et le langage. Dans un cadre rassurant, ils gagnent en autonomie et en confiance, et s’initient dès le plus jeune âge aux langues vivantes.'},
+{img:'./assets/0f4c790eb12836de3888c054f23fdce9.jpg',pos:'50% 35%',title:'École élémentaire',ages:'Âges 6 – 10 ans, du CP au CM2',text:'Lecture, écriture, calcul et curiosité scientifique : les fondamentaux s’acquièrent avec rigueur, dans la bienveillance et le goût de l’effort, aux côtés de l’arabe et de l’anglais.'},
+{img:'./assets/6bdc7cb7a662e8757f5fd1dd96687533.jpg',pos:'50% 30%',title:'Collège',ages:'Âges 11 – 14 ans, de la 6e à la 3e',text:'Les savoirs s’approfondissent, l’esprit critique s’affûte et chacun apprend à travailler en autonomie. Le cycle s’achève par le diplôme national du brevet.'},
+{img:'./assets/7091bf574867f08d6b74b7ca801adc88.jpg',pos:'50% 20%',title:'Lycée',ages:'Âges 15 – 18 ans, de la 2de à la terminale',text:'Des enseignements de spécialité exigeants, un accompagnement personnalisé vers le baccalauréat et une préparation réfléchie à l’enseignement supérieur.'}];
+const SEC=[
+{num:'01',title:'Système français',text:'Les programmes de l’Éducation nationale jusqu’au baccalauréat français, gage de rigueur et de reconnaissance dans le monde entier.'},
+{num:'02',title:'Section européenne',text:'Un enseignement renforcé d’une langue vivante et d’une discipline dispensée en langue étrangère, pour une maîtrise approfondie et une véritable ouverture européenne.'},
+{num:'03',title:'Section internationale',text:'Un apprentissage renforcé d’une langue et d’une culture étrangères, qui nourrit la double culture et prépare à la mobilité internationale.'},
+{num:'04',title:'Baccalauréat français international',text:'Un parcours exigeant et ouvert sur le monde, qui développe l’esprit critique, l’autonomie et le goût de la recherche personnelle.'}];
+const O=[
+{label:'Conventions universitaires',text:'Des conventions conclues avec des universités facilitent l’information, les échanges et l’accès à des cursus en France et à l’international.'},
+{label:'Rencontres avec des professionnels',text:'Des professionnels de tous horizons viennent à la rencontre des élèves, qui peuvent les interroger sur leur métier, leur parcours et les formations qui y mènent.'},
+{label:'Conseil en orientation',text:'Un accompagnement personnalisé, de la seconde à la terminale, pour bâtir un projet réfléchi, ambitieux et en accord avec les goûts de chacun.'}];
+const oTabs=O.map((o,i)=>({label:o.label,pick:()=>this.setState({orient:i}),style:"font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 18px;min-height:44px;border-radius:999px;cursor:pointer;border:1.5px solid #FFFFFF;"+(st.orient===i?'background:#FFFFFF;color:#14264B':'background:transparent;color:#FFFFFF')}));
+const SP=['Football','Basketball','Athlétisme','Volley-ball','Badminton','Natation','Et bien d’autres'];
+const FAC=[
+['SPORT','Deux gymnases','Terrains de basket, de volley et de badminton, tables de tennis de table et bien d’autres espaces de jeu.'],
+['SPORT','Salle de sport','Un espace dédié à la condition physique et à la pratique sportive.'],
+['SPORT','Piscine','Pour apprendre à nager, s’entraîner et compéter.'],
+['SPORT','Terrain de football et piste d’athlétisme','Un grand terrain de football entouré d’une piste d’athlétisme.'],
+['SPORT','Baby-foot et tennis de table','Des tables installées dans les cours pour se divertir pendant les récréations.'],
+['APPRENTISSAGE','Salles de classe équipées','Climatisées et dotées d’ordinateurs, de projecteurs et d’équipements modernes.'],
+['APPRENTISSAGE','FabLab','Un atelier de fabrication numérique pour concevoir, prototyper et inventer.'],
+['APPRENTISSAGE','Salles de sciences','Des salles aménagées pour mener des expériences scientifiques.'],
+['APPRENTISSAGE','Bibliothèque','Un lieu calme pour lire, chercher et travailler.'],
+['APPRENTISSAGE','Salle informatique','Des postes pour la programmation, la recherche et les projets numériques.'],
+['APPRENTISSAGE','Auditorium','Un grand auditorium pour les conférences, les spectacles et les rencontres de toute la communauté.'],
+['APPRENTISSAGE','Salle d’art','Un atelier lumineux pour dessiner, peindre et laisser libre cours à la créativité.'],
+['VIE QUOTIDIENNE','Infirmerie','Une infirmière veille à la santé et au bien-être des élèves.'],
+['VIE QUOTIDIENNE','Foyer des lycéens','Un espace de détente pour souffler entre deux cours.'],
+['VIE QUOTIDIENNE','Cantine','Des repas équilibrés et sains pour bien aborder la journée.']];
+const fKeys=['Tout','SPORT','APPRENTISSAGE','VIE QUOTIDIENNE'],fLab=['Tout','Sport','Apprentissage','Vie quotidienne'];
+const fTabs=fKeys.map((k,i)=>({label:fLab[i],pick:()=>this.setState({vf:k}),style:"font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 18px;min-height:44px;border-radius:999px;cursor:pointer;border:1.5px solid #14264B;"+(st.vf===k?'background:#14264B;color:#FFFFFF':'background:#FFFFFF;color:#14264B')}));
+const IMG={'Terrain de football et piste d’athlétisme':'./assets/42e932595e1c9bbe10edec7571994316.jpg','Salle de sport':'./assets/61a1c536dd753fe62b8864d4c4dc992c.jpg','Deux gymnases':'./assets/3651c405626d9405c70de04577a9ba69.jpg','Baby-foot et tennis de table':'./assets/29afdc87717cba442d9168e208190873.jpg','Piscine':'./assets/7067c9b89b491cd07c6487e00505830c.jpg','Salles de classe équipées':'./assets/4a462bdcb6acfb7cabef2039cd5cfd8e.jpg','Bibliothèque':'./assets/fee6d8cecf75851c91a4b7022a465b2e.jpg','Salle informatique':'./assets/07cf1b6a45668eabf7e5d839ab8499a5.jpg','Infirmerie':'./assets/5dc51a510a99fe368586d9005b2abf55.jpg','Auditorium':'./assets/c91fcdb635dffdd26b156605be3cb2c4.png'};
+const big=['Piscine','Deux gymnases','Terrain de football et piste d’athlétisme','FabLab','Auditorium'];
+const facs=FAC.filter(f=>st.vf==='Tout'||f[0]===st.vf).map(([tag,title,text],i)=>{const b=big.includes(title);const tone=(tag==='SPORT'||IMG[title])?['#14264B','#FFFFFF','#C9D3EA']:tag==='APPRENTISSAGE'?['#FFFFFF','#14264B','#4A5262']:['#F9DDD8','#14264B','#4A5262'];return {tag,title,text,hasImg:!!IMG[title],img:IMG[title]||'',num:String(i+1).padStart(2,'0'),cls:b?'wide':'',style:'position:relative;isolation:isolate;overflow:hidden;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;justify-content:flex-end;min-height:'+(b?300:(IMG[title]?250:210))+'px;background:'+tone[0]+';color:'+tone[1],textColor:tone[2],tagColor:(tag==='SPORT'||IMG[title])?'#FFD9D4':'#B5271F',titleSize:b?32:22};});
+const sports2=SP.concat(SP).concat(SP);
+const CONC=[
+{title:'Tournois d’échecs',text:'Réflexion, patience et stratégie sur l’échiquier.'},
+{title:'MUN',text:'Des simulations de l’ONU pour apprendre le débat et la diplomatie.'},
+{title:'CRE@SCHOOL',text:'Un concours d’innovation pour inventer le monde de demain.'},
+{title:'Olympiades de l’IA et d’informatique',text:'Des défis d’algorithmique et d’intelligence artificielle.'},
+{title:'Concours de plaidoiries',text:'L’art de convaincre et de défendre une cause avec éloquence.'},
+{title:'Ambassadeur et ambassadrice en herbe',text:'Un concours d’art oratoire et de débat pour apprendre à convaincre.'},
+{title:'Compétitions sportives',text:'Des rencontres régulières, en équipe comme en individuel.'},
+{title:'Concours Castor',text:'Un concours d’informatique et de pensée algorithmique.'},
+{title:'Pix',text:'La certification des compétences numériques.'}];
+const EVT=[
+{title:'Fête internationale',text:'Une célébration des cultures du monde, de la gastronomie aux traditions.'},
+{title:'Kermesse',text:'Jeux, stands et convivialité pour petits et grands.'},
+{title:'Tournoi de football',text:'Des matchs pass ionnants entre classes et équipes.'.replace('pass ionnants','passionnants')},
+{title:'Tournoi de basket',text:'L’esprit d’équipe sur le terrain.'},
+{title:'Talent show',text:'Sur scène, chacun révèle ses talents.'},
+{title:'Ventes de gâteaux',text:'Des pâtisseries faites maison, dans une ambiance conviviale.'},
+{title:'Concerts',text:'Musiciens et chanteurs montent sur scène devant la communauté.'}];
+const VOY=[
+{tag:'VOYAGE',title:'Athènes',text:'Pour les classes de 6e : un voyage à la rencontre de l’histoire et de la Grèce antique.'},
+{tag:'VOYAGE',title:'Classe de neige',text:'Pour les classes de 4e : montagne, sports d’hiver et vie en groupe.'},
+{tag:'VOYAGE',title:'États-Unis',text:'Un voyage pour découvrir la NASA et l’exploration spatiale.'},
+{tag:'VOYAGE',title:'Sri Lanka',text:'Une découverte culturelle et humaine.'},
+{tag:'VOYAGE',title:'Voyages sportifs',text:'Se déplacer pour affronter d’autres équipes.'},
+{tag:'VOYAGE',title:'Espagne',text:'Une immersion linguistique et culturelle.'},
+{tag:'VOYAGE',title:'France',text:'À la découverte du patrimoine et des régions françaises.'}];
+const CL=[
+['MUN','MUN','Les élèves endossent le rôle de diplomates et débattent des grands enjeux du monde, en simulant les travaux de l’ONU.','préparation de résolutions, débats, art oratoire.'],
+['Média','MÉD','Un club pour informer la communauté : articles, reportages, photographies et vidéos.','recherche d’idées, écriture, prise de vue, montage.'],
+['Maquette','MAQ','Les élèves imaginent, dessinent et construisent des maquettes, de l’idée jusqu’au modèle fini.','conception, fabrication, présentation de projets.'],
+['Finance','FIN','Une initiation à l’économie, à la bourse et à la gestion d’un budget.','simulations, études de cas, discussions d’actualité.'],
+['Club cinéma','CIN','Un lieu pour voir, analyser et discuter des films, et pourquoi pas pour en créer.','projections, débats, projets de création.'],
+['Maths en Jeans','MJ','Des élèves mènent une véritable recherche mathématique autour d’un problème ouvert, comme de jeunes chercheurs.','recherche en équipe, hypothèses, présentation des résultats.'],
+['Bonap Games','BG','Le club des jeux de société : stratégie, coopération et convivialité.','parties, découverte de nouveaux jeux, tournois amicaux.'],
+['Club manga','MAN','Pour les passionnés de manga et de culture japonaise.','lectures, dessin, discussions et découvertes.'],
+['Club solidarité','SOL','Des élèves engagés qui mènent des actions solidaires au sein du lycée et au-delà.','organisation d’actions, collectes, sensibilisation.'],
+['Elles bougent','EB','Un club qui encourage les filles à découvrir les métiers scientifiques et techniques.','rencontres, découvertes, modèles inspirants.'],
+['Club chorale','CH','Chanter ensemble, pour le plaisir de la musique et de la scène.','répétitions, travail vocal, concerts.']];
+const CLC=['#14264B','#B5271F','#2D4A86','#0E1B38'];
+const CLI=[['./assets/44d4485858681eabc98a67335e3f07c2.jpg','contain','#FFFFFF'],['./assets/bc7e662c7e49412aaaec4bbb58207fd0.jpg','cover','#8E2362'],['./assets/6e3b6f0ee3e7da03fa4a3e2f7bfcb646.jpg','cover','#14264B'],['./assets/6a4d6e65172bd5efae1704431c206539.jpg','cover','#11106B'],['./assets/e3878ca5025537642507d11b1435e8d9.jpg','cover','#FFFFFF'],['./assets/88829d3b31d0b1366e166fd58babf5b3.jpg','contain','#ECDCC2'],['./assets/2dca1445a6d4a3e9c9af9b77d8df4c59.jpg','cover','#1A1A1A'],['./assets/3ecb32be303ff3f4c2ce812e3610e3a3.jpg','cover','#2A2A2A'],['./assets/e8d8f9645b74908185f3639ab689fcab.jpg','cover','#14264B'],['./assets/b37dff7a9dbcfa4afdffb9c3111092b5.jpg','cover','#14264B'],['./assets/a4a18c236d71c37e17a27283859368e7.jpg','cover','#0E1B38']];
+const clubs=CL.map(([name,mono],i)=>{const on=st.club===i;return {name,mono,img:CLI[i][0],fit:CLI[i][1],pick:()=>this.setState({club:i}),style:"display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;cursor:pointer;font-family:'Public Sans',sans-serif;text-align:center;transform:scale("+(on?1.08:1)+")",circle:"width:92px;height:92px;border-radius:50%;overflow:hidden;background:"+CLI[i][2]+";box-shadow:"+(on?'0 0 0 4px #EFEDE6,0 0 0 7px #B5271F':'none')};});
+const clubCur={name:CL[st.club][0],text:CL[st.club][2],items:CL[st.club][3],img:CLI[st.club][0],fit:CLI[st.club][1],bg:CLI[st.club][2]};
+const Y=[
+{year:'1976',title:'1976 · Les origines',text:'Des Français installés à Doha s’unissent pour offrir à leurs enfants un enseignement en langue française. L’École française de Doha ouvre ses portes et figure dès 1977 dans les accords de coopération éducative franco-qataris.'},
+{year:'1987',title:'1987 · La reconnaissance',text:'L’école acquiert officiellement le statut d’établissement d’enseignement au Qatar, par décret du ministère qatari de l’Éducation.'},
+{year:'1994',title:'1994 · L’installation à West Bay',text:'Devenue trop étroite, l’école s’établit dans de nouveaux bâtiments à West Bay et prend le nom de Lycée français de Doha.'},
+{year:'2021',title:'2021 · Le campus contemporain',text:'Un vaste projet de modernisation s’achève : le lycée dispose désormais d’un campus fonctionnel pouvant accueillir plus de 2 150 élèves.'},
+{year:'2026',title:'2026 · Le cinquantenaire',text:'Le lycée célèbre cette année son cinquantième anniversaire : un demi-siècle d’éducation à la française, d’ouverture au monde et de réussite partagée.'}];
+const years=Y.map((y,i)=>{const on=st.year===i;return {year:y.year,pick:()=>this.setState({year:i}),style:"font-family:'Fraunces',serif;font-size:20px;padding:10px 22px;min-height:44px;border-radius:999px;cursor:pointer;border:1.5px solid #14264B;"+(on?'background:#14264B;color:#FFFFFF':'background:#FFFFFF;color:#14264B')};});
+const F=[
+['À partir de quel âge peut-on inscrire son enfant ?','Le lycée accueille les élèves de 3 à 18 ans, de la maternelle jusqu’à la fin du cycle secondaire.'],
+['Quel programme est dispensé ?','L’enseignement est conforme aux programmes, aux objectifs pédagogiques et aux valeurs de l’Éducation nationale ; l’établissement est conventionné par l’AEFE.'],
+['Quelle place occupent les langues vivantes ?','L’apprentissage des langues est au cœur du projet d’établissement, avec un enseignement renforcé dès la maternelle.'],
+['Comment accéder à Pronote ?','Le lien d’accès figure en haut de cette page, dans la rubrique « Espace Pronote ».'],
+['Où se situe le campus ?','Le lycée est installé à West Bay, sur Al Intisar Street, à Doha.'],
+['Où trouver les frais de scolarité et la procédure d’inscription ?','Ces informations sont réunies dans la rubrique « Inscriptions » ; le détail des conditions financières est publié sur le site officiel du lycée.']];
+const faq=F.map(([q,a],i)=>{const open=st.faq===i;return {q,a,open,sign:open?'−':'+',pick:()=>this.setState({faq:open?-1:i})};});
+return {accent,nav,stats,years,faq,curYear:Y[st.year],cur:G[st.gal],thumbs,cycles:C,secs:SEC,oTabs,oCur:O[st.orient],facs,fTabs,conc:CONC.map((c,i)=>({...c,n:String(i+1).padStart(2,'0'),style:'background:#FFFFFF;border:1px solid #E4E1D8;border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:10px;margin-top:'+[0,40,14][i%3]+'px'})),evts:EVT.map((e,i)=>({...e,style:'position:relative;border-radius:6px;padding:30px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 30px -18px rgba(20,38,75,.5);transform:rotate('+[-1.6,1.2,-0.8,1.8,-1.2,0.9,-1.5][i%7]+'deg);background:'+['#FFFFFF','#FFE9E4','#E6ECF8'][i%3]})),voys:VOY,sports2,sports:SP,clubs,clubCur,prevG:()=>this.setState({gal:(st.gal+4)%5}),nextG:()=>this.setState({gal:(st.gal+1)%5}),galN:(st.gal+1)+' / 5',
+isHome:st.page==='home',isContact:st.page==='contact',isVie:st.page==='vie',isOther:st.page!=='home'&&st.page!=='contact'&&st.page!=='vie',
+curPage:{label:st.page==='academie'?'Académie Bonaparte':(pages.find(p=>p[0]===st.page)||pages[0])[1]},
+goHome:go('home'),goAcademie:go('academie'),goInscr:go('inscr'),goContact:go('contact'),
+nlSent:st.nl,nlOpen:!st.nl,sendNl:()=>this.setState({nl:true}),
+contactSent:st.contact,contactOpen:!st.contact,sendContact:()=>this.setState({contact:true})};
+}
+}
+</script>
+</body>
+</html>
