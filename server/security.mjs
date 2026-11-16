@@ -1,0 +1,21 @@
+import {scrypt,randomBytes,createHash,timingSafeEqual} from 'node:crypto';
+import {promisify} from 'node:util';
+import * as OTPAuth from 'otpauth';
+const derive=promisify(scrypt);
+export const hash=s=>createHash('sha256').update(s).digest('hex');
+export const token=()=>randomBytes(32).toString('base64url');
+export const equal=(a,b)=>typeof a==='string'&&typeof b==='string'&&Buffer.byteLength(a)===Buffer.byteLength(b)&&timingSafeEqual(Buffer.from(a),Buffer.from(b));
+export function fail(status,message){throw Object.assign(new Error(message),{status})}
+export function passwordRules(value){if(typeof value!=='string'||value.length<12||value.length>128)fail(400,'Le mot de passe doit contenir entre 12 et 128 caractères.');}
+export async function passwordHash(password){passwordRules(password);const salt=randomBytes(16).toString('hex');return salt+':'+(await derive(password,salt,64,{N:32768,r:8,p:3,maxmem:64*1024*1024})).toString('hex');}
+export async function verifyPassword(password,stored){if(typeof password!=='string'||password.length>128)return false;const [salt,digest]=(stored||'00000000000000000000000000000000:00').split(':');const value=(await derive(password,salt,64,{N:32768,r:8,p:3,maxmem:64*1024*1024})).toString('hex');return equal(value,digest);}
+export function otp(secret,email){return new OTPAuth.TOTP({issuer:'Bonaparte Carnets',label:email,algorithm:'SHA1',digits:6,period:30,secret});}
+export function verifyOTP(secret,email,code,last=-1){if(!/^\d{6}$/.test(code||''))return null;const now=Date.now(),delta=otp(secret,email).validate({token:code,timestamp:now,window:1});const step=Math.floor(now/30000)+(delta??0);return delta!==null&&step>last?step:null;}
+export function newOTP(email){const secret=new OTPAuth.Secret({size:20}).base32;return {secret,uri:otp(secret,email).toString()};}
+export function rateLimit(db,key,max=10,window=900000){const now=Date.now();db.prepare('DELETE FROM limits WHERE reset<?').run(now);let row=db.prepare('SELECT * FROM limits WHERE key=?').get(key);if(row&&row.count>=max)fail(429,'Trop de tentatives. Réessayez dans quinze minutes.');db.prepare('INSERT INTO limits(key,count,reset) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1').run(key,now+window);}
+export function sessionFor(db,req){const raw=(req.headers.cookie||'').split(';').map(v=>v.trim()).find(v=>v.startsWith('bonaparte_session='))?.slice(18);if(!raw)return null;const now=Date.now();const s=db.prepare('SELECT s.*,u.email,u.name,u.role,u.disabled,u.mfa_secret FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.hash=?').get(hash(raw));if(!s||s.disabled||s.expires<now||s.touched<now-30*60*1000){if(s)db.prepare('DELETE FROM sessions WHERE hash=?').run(s.hash);return null;}db.prepare('UPDATE sessions SET touched=? WHERE hash=?').run(now,s.hash);return s;}
+export function setSession(db,res,user,secure){const value=token(),csrf=token(),now=Date.now();db.prepare('DELETE FROM sessions WHERE expires<?').run(now);db.prepare('INSERT INTO sessions VALUES(?,?,?,?,?)').run(hash(value),user.id,csrf,now+8*3600000,now);res.setHeader('Set-Cookie',`bonaparte_session=${value}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800${secure?'; Secure':''}`);return {user:{id:user.id,email:user.email,name:user.name,role:user.role,mfa:!!user.mfa_secret},csrf};}
+export function clearSession(res,secure){res.setHeader('Set-Cookie',`bonaparte_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0${secure?'; Secure':''}`);}
+export function requireAdmin(session){if(!session)fail(401,'Votre session a expiré. Reconnectez-vous.');if(session.role!=='admin')fail(403,'Ce compte n’est pas autorisé à administrer les carnets.');}
+export async function readBody(req,max=1024*1024){let size=0;const chunks=[];for await(const chunk of req){size+=chunk.length;if(size>max)fail(413,'Le fichier ou le contenu est trop volumineux.');chunks.push(chunk)}return Buffer.concat(chunks);}
+export async function jsonBody(req){if(!req.headers['content-type']?.startsWith('application/json'))fail(415,'Format JSON requis.');try{const value=JSON.parse((await readBody(req)).toString('utf8'));if(!value||Array.isArray(value)||typeof value!=='object')fail(400,'Objet JSON requis.');return value}catch(e){if(e.status)throw e;fail(400,'Contenu JSON invalide.');}}

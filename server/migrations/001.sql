@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS users (
+ id TEXT PRIMARY KEY, email TEXT UNIQUE NOT NULL, name TEXT NOT NULL,
+ password TEXT, role TEXT NOT NULL CHECK(role IN ('admin','viewer')),
+ disabled INTEGER NOT NULL DEFAULT 0, mfa_secret TEXT, mfa_pending TEXT,
+ mfa_step INTEGER NOT NULL DEFAULT -1, created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sessions (
+ hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ csrf TEXT NOT NULL, expires INTEGER NOT NULL, touched INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS invitations (
+ hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ expires INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS albums (
+ id TEXT PRIMARY KEY, slug TEXT UNIQUE NOT NULL, draft TEXT NOT NULL,
+ published TEXT, version INTEGER NOT NULL DEFAULT 1,
+ published_version INTEGER, archived INTEGER NOT NULL DEFAULT 0,
+ created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL, published_at INTEGER
+);
+CREATE TABLE IF NOT EXISTS media (
+ id TEXT PRIMARY KEY, filename TEXT NOT NULL, width INTEGER NOT NULL, height INTEGER NOT NULL,
+ bytes INTEGER NOT NULL, alt TEXT NOT NULL DEFAULT '', credit TEXT NOT NULL DEFAULT '',
+ permission TEXT NOT NULL DEFAULT 'unknown' CHECK(permission IN ('unknown','approved','denied')),
+ permission_note TEXT NOT NULL DEFAULT '', created_by TEXT REFERENCES users(id), created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS published_media (
+ album_id TEXT NOT NULL REFERENCES albums(id) ON DELETE CASCADE,
+ media_id TEXT NOT NULL REFERENCES media(id), PRIMARY KEY(album_id,media_id)
+);
+CREATE TABLE IF NOT EXISTS audit (
+ id INTEGER PRIMARY KEY, user_id TEXT, action TEXT NOT NULL, target TEXT,
+ created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, reset INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
